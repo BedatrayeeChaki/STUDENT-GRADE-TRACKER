@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class StudentGradeTracker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Define number of students
+        System.out.print("Enter the number of students: ");
+        int numStudents = scanner.nextInt();
+        
+        // Arrays to hold student names and grades
+        String[] studentNames = new String[numStudents];
+        double[] studentGrades = new double[numStudents];
+        
+        // Get student names and grades from the user
+        for (int i = 0; i < numStudents; i++) {
+            scanner.nextLine();  // Consume the leftover newline character
+            System.out.print("Enter the name of student " + (i + 1) + ": ");
+            studentNames[i] = scanner.nextLine();
+            System.out.print("Enter the grade of " + studentNames[i] + ": ");
+            studentGrades[i] = scanner.nextDouble();
+        }
+        
+        // Calculate and display the grades and averages
+        double totalGrades = 0;
+        System.out.println("\nStudent Grades:");
+        for (int i = 0; i < numStudents; i++) {
+            System.out.println(studentNames[i] + ": " + studentGrades[i]);
+            totalGrades += studentGrades[i];
+        }
+        
+        // Calculate average grade
+        double averageGrade = totalGrades / numStudents;
+        System.out.println("\nThe average grade for all students is: " + averageGrade);
+        
+        // Close scanner
+        scanner.close();
+    }
+}
